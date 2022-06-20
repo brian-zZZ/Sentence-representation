@@ -26,9 +26,9 @@ Four kinds of models are supported:
   pip install -r requirements.txt
   ```
 
-* Download pretrained embeddings vectors of [GloVe](https://huggingface.co/stanfordnlp/glove/resolve/main/glove.6B.zip) and [Word2Vec](https://huggingface.co/fse/word2vec-google-news-300/resolve/main/word2vec-google-news-300.model.vectors.npy), then place to `sentence-representation/glove.6B/` and `sentence-representation/word2vec/` resprectively. For Chinese users, you may also download via [Baidu NetDisk link]([百度网盘 请输入提取码](https://pan.baidu.com/s/1YzJeGvo_noLB31h7j5fiWQ?pwd=pd9m)), pass-code: pd9m.
+* Download pretrained embeddings vectors of [GloVe](https://huggingface.co/stanfordnlp/glove/resolve/main/glove.6B.zip) and [Word2Vec](https://huggingface.co/fse/word2vec-google-news-300/resolve/main/word2vec-google-news-300.model.vectors.npy), then place them to `sentence-representation/glove.6B/` and `sentence-representation/word2vec/` respectively. For Chinese users, you may also download via [Baidu NetDisk link]([百度网盘 请输入提取码](https://pan.baidu.com/s/1YzJeGvo_noLB31h7j5fiWQ?pwd=pd9m)), pass-code: pd9m.
 
-* Download pretrained weights of BERTs of Huggingface, **Optional**. Pretrained weights are available at the Baidu NetDisk link above, place them to `sentence-representation/huggingface_pretrained/`.
+* Download pretrained weights of BERTs from Huggingface, **Optional**. Pretrained weights are available at the Baidu NetDisk link above, place them to `sentence-representation/huggingface_pretrained/`.
   
   If you don't download the pretrained weights,  remember to pass `--local_or_online=online` when you run the `main_BERTs.py` script, then the online weights will be cached properly.
 
@@ -70,7 +70,7 @@ python preprocessor.py --word_type=subword --min_freq=2
 
 * RNNs
   
-  Mainly determining args: `rnn_type, bidirect, siamese, embedder_type`, where the choices of `rnn_type` are `rnn, lstm, gru`
+  Mainly determining args: `rnn_type, bidirectional, siamese, embedder_type`, where the choices of `rnn_type` are `rnn, lstm, gru`
   
   ```bash
   python main_RNNs.py "your specific args config"
@@ -88,13 +88,13 @@ python preprocessor.py --word_type=subword --min_freq=2
   python main_BERTs.py "your specific args config"
   ```
 
-More args of each models please check the corresponding `main_x.py` file, and customize your training schedule.
+More args of each models please check the corresponding `main_xxx.py` file, and customize your training schedule.
 
 ## Performance comparison
 
 ![Global comparison](./results.png)
 
-BERTs outpeform other methods by absolute advantage, although it costs more time and hardware resources; Embedders and RNNs are not bad, close to each other; while TextCNN peforms pour, indicating it's not that suitable for sentence sementic similarity prediction.
+BERTs outperform other methods by absolute advantage, although it costs more time and hardware resources; Embedders and RNNs are not bad, close to each other; while TextCNN performs poor, indicating it's not that suitable for sentence semantic similarity prediction task.
 
 ## Infos & Acknowledgement
 
@@ -111,3 +111,5 @@ This integrated toolkit on sentence embedding is welcome to use, and please cite
 [2] [Gao, Tianyu, Xingcheng Yao and Danqi Chen. “SimCSE: Simple Contrastive Learning of Sentence Embeddings.” ArXiv abs/2104.08821 (2021): n. pag.](https://aclanthology.org/2021.emnlp-main.552.pdf)
 
 [3] [Cer, Daniel Matthew, Mona T. Diab, Eneko Agirre, Iñigo Lopez-Gazpio and Lucia Specia. “SemEval-2017 Task 1: Semantic Textual Similarity Multilingual and Crosslingual Focused Evaluation.” *SemEval@ACL* (2017).](https://aclanthology.org/S17-2001.pdf)
+
+[4] [Sennrich, Rico, Barry Haddow and Alexandra Birch. “Neural Machine Translation of Rare Words with Subword Units.” ArXiv abs/1508.07909 (2016): n. pag.](https://aclanthology.org/P16-1162.pdf)
